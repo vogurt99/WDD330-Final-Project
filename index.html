@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Finder | Home</title>
+    <link rel="stylesheet" href="./src/css/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <header id="main-header"></header>
+
+    <main class="divider">
+        <section id="search-section" class="search">
+            <h2>Find Your Next Read</h2>
+            <form id="search-form">
+                <label for="search-input">Search by title, author, or subject</label>
+                <input type="text" id="search-input" name="search" placeholder="e.g. The Hobbit" required />
+                <button type="submit">Search</button>
+                <label for="subject-select">Filter by genre</label>
+                <select id="subject-select" name="subject">
+                    <option value="">All</option>
+                    <option value="fantasy">Fantasy</option>
+                    <option value="science_fiction">Science Fiction</option>
+                    <option value="mystery">Mystery</option>
+                    <option value="romance">Romance</option>
+                    <option value="history">History</option>
+                    <option value="biography">Biography</option>
+                </select>
+                <label for="sort-select">Sort by</label>
+                <select id="sort-select" name="sort">
+                    <option value="">Relevance</option>
+                    <option value="new">Newest first</option>
+                    <option value="old">Oldest first</option>
+                </select>
+            </form>
+        </section>
+
+        <section id="results-section" class="results">
+            <h2>Results</h2>
+            <div id="results-grid" class="results-grid">
+                <!-- Book cards will be added here through JS -->
+            </div>
+
+            <!-- Pagination controls -->
+            <div id="pagination-controls" class="pagination">
+                <!-- Next/Previous buttons will be added here -->
+            </div>
+        </section>
+    </main>
+
+    <footer id="main-footer"></footer>
+
+    <script type="module" src="./src/js/main.js"></script>
+</body>
+
+</html>
