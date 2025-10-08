@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Finder | About</title>
+    <link rel="stylesheet" href="./src/css/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <header id="main-header"></header>
+
+    <main class="divider">
+        <section id="about-section" class="about-section">
+            <h2>About This Project</h2>
+            <p>WDD330 Final Project by <strong>Samuel Jericho Gomez</strong> for <strong>BYU–Idaho 2025</strong>.</p>
+            <p>
+                This web application, <em>Book Finder</em>, allows users to search for books, explore their details,
+                and discover new reads using data from the <a href="https://openlibrary.org/" target="_blank"
+                    rel="noopener">Open Library API</a>.
+            </p>
+            <p>
+                The project demonstrates modular JavaScript design, API integration, pagination, accessibility
+                considerations, and responsive web design.
+            </p>
+        </section>
+    </main>
+
+    <footer id="main-footer"></footer>
+
+    <script type="module">
+        async function loadPartial(id, file) {
+            try {
+                const res = await fetch(`/src/public/partials/${file}`);
+                if (!res.ok) throw new Error(`Failed to load ${file}`);
+                document.getElementById(id).innerHTML = await res.text();
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            loadPartial("main-header", "header.html");
+            loadPartial("main-footer", "footer.html");
+        });
+    </script>
+</body>
+
+</html>
