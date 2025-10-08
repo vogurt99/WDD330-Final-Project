@@ -15,7 +15,7 @@ export function renderResults(books) {
     books.forEach((book) => {
         const cover = book.cover_i
             ? getCoverURL(book.cover_i)
-            : "./public/images/placeholder_small.png"; // Placeholder image in case there is none
+            : "/images/placeholder_small.png"; // Placeholder image in case there is none
 
         const authors = book.author_name ? book.author_name.join(", ") : "Unknown author";
 
@@ -45,7 +45,7 @@ function showDetailModal(book) {
 
     const cover = book.cover_i
         ? getCoverURL(book.cover_i, "L")
-        : "./public/images/placeholder_large.png"; // Placeholder image in case there is none
+        : "/images/placeholder_large.png"; // Placeholder image in case there is none
     const authors = book.author_name ? book.author_name.join(", ") : "Unknown author";
     const publishYear = book.first_publish_year || "Unknown year";
 
