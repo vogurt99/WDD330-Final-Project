@@ -14,20 +14,15 @@ async function loadPartial(id, file) {
     }
 }
 
-async function fetchAndRender(query, page, filters = {}) {
+async function loadPartial(id, file) {
     try {
-        const data = await searchBooks(query, page, filters);
-        renderResults(data.docs);
-        renderPagination(data.numFound, page, async (newPage) => {
-            currentPage = newPage;
-            await fetchAndRender(currentQuery, currentPage, filters);
-        });
+        const res = await fetch(`./public/partials/${file}`);
+        if (!res.ok) throw new Error(`Failed to load ${file}`);
+        document.getElementById(id).innerHTML = await res.text();
     } catch (err) {
         console.error(err);
-        showError("Oops! Something went wrong while fetching the books. Please try again later.");
     }
 }
-
 function init() {
     loadPartial("main-header", "header.html");
     loadPartial("main-footer", "footer.html");
