@@ -14,6 +14,11 @@ async function loadPartial(id, file) {
     }
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+    loadPartial("main-header", "header.html");
+    loadPartial("main-footer", "footer.html");
+});
+
 async function fetchAndRender(query, page, filters = {}) {
     try {
         const data = await searchBooks(query, page, filters);
