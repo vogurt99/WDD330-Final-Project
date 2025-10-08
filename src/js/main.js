@@ -6,13 +6,18 @@ let currentPage = 1;
 
 async function loadPartial(id, file) {
     try {
-        const res = await fetch(`./src/public/partials/${file}`);
+        const basePath = window.location.pathname.includes("/about/")
+            ? "../public/partials/"
+            : "./src/public/partials/";
+
+        const res = await fetch(`${basePath}${file}`);
         if (!res.ok) throw new Error(`Failed to load ${file}`);
         document.getElementById(id).innerHTML = await res.text();
     } catch (err) {
         console.error(err);
     }
 }
+
 
 async function fetchAndRender(query, page, filters = {}) {
     try {
