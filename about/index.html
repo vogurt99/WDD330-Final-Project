@@ -33,22 +33,7 @@
 
     <footer id="main-footer"></footer>
 
-    <script type="module">
-        async function loadPartial(id, file) {
-            try {
-                const res = await fetch(`../public/partials/${file}`);
-                if (!res.ok) throw new Error(`Failed to load ${file}`);
-                document.getElementById(id).innerHTML = await res.text();
-            } catch (err) {
-                console.error(err);
-            }
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            loadPartial("main-header", "header.html");
-            loadPartial("main-footer", "footer.html");
-        });
-    </script>
+    <script type="module" src="/src/js/main.js"></script>
 </body>
 
 </html>
