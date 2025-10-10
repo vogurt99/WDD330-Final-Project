@@ -42,6 +42,21 @@ function init() {
     const subjectSelect = document.getElementById("subject-select");
     const sortSelect = document.getElementById("sort-select");
 
+    const saved = JSON.parse(localStorage.getItem("lastSearch"));
+    if (saved) {
+        currentQuery = saved.query || "";
+        searchInput.value = currentQuery;
+
+        if (saved.filters) {
+            subjectSelect.value = saved.filters.subject || "";
+            sortSelect.value = saved.filters.sort || "";
+        }
+
+        if (currentQuery) {
+            fetchAndRender(currentQuery, currentPage, saved.filters);
+        }
+    }
+
     if (searchForm) {
         searchForm.addEventListener("submit", async (e) => {
             e.preventDefault();
@@ -57,6 +72,10 @@ function init() {
 
             currentPage = 1;
             await fetchAndRender(currentQuery, currentPage, filters);
+            localStorage.setItem("lastSearch", JSON.stringify({
+                query: currentQuery,
+                filters
+            }));
         });
     }
 }

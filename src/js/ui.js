@@ -45,7 +45,7 @@ function showDetailModal(book) {
 
     const cover = book.cover_i
         ? getCoverURL(book.cover_i, "L")
-        : "/images/placeholder_large.png"; // Placeholder image in case there is none
+        : "/images/placeholder_large.png"; // Placeholder image in case there is no image.
     const authors = book.author_name ? book.author_name.join(", ") : "Unknown author";
     const publishYear = book.first_publish_year || "Unknown year";
 
